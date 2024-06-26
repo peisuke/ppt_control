@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>PPT Control</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+      }
+      .half {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        width: 90%;
+        height: 80%;
+        font-size: 10em;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="half">
+        <button id="nextButton">Next</button>
+      </div>
+      <div class="half">
+        <button id="backButton">Prev</button>
+      </div>
+    </div>
+  
+    <script>
+      document.getElementById('nextButton').addEventListener('click', function() {
+        axios.post('/api/next', {})
+          .then(function (response) {})
+          .catch(function (error) {});
+      });
+      document.getElementById('backButton').addEventListener('click', function() {
+        axios.post('/api/back', {})
+          .then(function (response) {})
+          .catch(function (error) {});
+      });
+    </script>
+  </body>
+</html>
